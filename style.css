@@ -1,40 +1,49 @@
+body{
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+
+
 .grid{
     display: flex;
     width:250px;
     height: 500px;
     flex-wrap: wrap;
-    background-color: aqua;
-    border: 3px solid grey;
+    
+   background-color: black;
+   border: 3px solid white;
 }
 
 
 .grid div{
     width: 25px;
     height: 25px;
-    box-shadow: inset 2px 3px 4px;
+    
     
 }
 
 
 .snake{
-    background-color: mediumorchid;
+    background-color: rgb(136, 238, 136);
+    box-shadow: inset 2px 3px 4px;
 }
 
 
-.food{
-    background-color: pink;
+
+
+
+img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
 }
 
 
-.box{
-    width: 100px;
-    height: 100px;
+.snake-head{
+    border-radius: 20px;
     background-color: red;
-    position: relative;
-}
-
-.box:after{
-    content: '';
-    position: absolute;
-    
 }

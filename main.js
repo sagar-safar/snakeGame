@@ -9,8 +9,11 @@ let snakeBody = [10,11,12]
 let snakeDir = 1;
 let HeadPos = 12;
 let foodPos = 18;
+let score = 0;
 
-squares[foodPos].classList.add('food')
+
+squares[foodPos].innerHTML = `<img src="./food.jpg" alt="">`
+squares[12].classList.add('snake-head')
 
 for(let i=0;i<snakeBody.length;i++){
     squares[snakeBody[i]].classList.add('snake');
@@ -101,9 +104,13 @@ function move(){
 
     let foodEaten = foodEat(); 
     if(foodEaten){
+        score += 1;
+        document.querySelector('h3').textContent = `Score: ${score}`
+        squares[HeadPos].classList.remove('snake-head')
         HeadPos += snakeDir;
         snakeBody.push(HeadPos);
         squares[HeadPos].classList.add('snake')
+        squares[HeadPos].classList.add('snake-head')
 
     }
     
@@ -112,10 +119,12 @@ function move(){
 
     else{
         squares[snakeBody[0]].classList.remove('snake')
+        squares[HeadPos].classList.remove('snake-head')
         snakeBody.splice(0,1);
         HeadPos += snakeDir;
         snakeBody.push(HeadPos);
         squares[HeadPos].classList.add('snake')
+        squares[HeadPos].classList.add('snake-head')
         }
 }
 
@@ -130,7 +139,8 @@ function foodEat(){
        
         if(HeadPos+snakeDir===foodPos){
            
-            squares[foodPos].classList.remove('food')
+            
+            squares[foodPos].innerHTML=""
             foodGen()
 
             
@@ -155,7 +165,8 @@ function foodGen(){
         foodGen()
     }
     else{
-        squares[foodPos].classList.add('food')
+        
+        squares[foodPos].innerHTML=`<img src="./food.jpg" alt="">`;
     }
 }
 
