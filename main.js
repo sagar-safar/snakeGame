@@ -103,6 +103,7 @@ function move(){
     if(collison){
         gameStatus = true;
         document.querySelector('h2').textContent = "Game Over"
+        document.querySelector('.grid').style = "border: 3px solid red;"
         console.log("color-changed");
         squares[HeadPos].style = "background-color:red"
         return -1
