@@ -13,7 +13,9 @@ let score = 0;
 
 
 squares[foodPos].innerHTML = `<img src="./food.jpg" alt="">`
-squares[12].classList.add('snake-head')
+squares[HeadPos].classList.add('snake-head')
+
+
 
 for(let i=0;i<snakeBody.length;i++){
     squares[snakeBody[i]].classList.add('snake');
@@ -99,6 +101,8 @@ function move(){
 
     let collison = collisonDetection(); 
     if(collison){
+        console.log("color-changed");
+        squares[HeadPos].style = "background-color:red"
         return -1
     }
 

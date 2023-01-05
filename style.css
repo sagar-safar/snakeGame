@@ -28,8 +28,9 @@ body{
 
 
 .snake{
-    background-color: rgb(136, 238, 136);
+    background-color: hsl(120, 75%, 73%);
     box-shadow: inset 2px 3px 4px;
+    border-radius: 50%;
 }
 
 
@@ -44,6 +45,12 @@ img{
 
 
 .snake-head{
-    border-radius: 20px;
-    background-color: red;
+
+    background-color:orange;
+    position: relative;
+
 }
+
+
+
+
