@@ -7,7 +7,10 @@ body{
 }
 
 
-
+h2{
+    width: 120px;
+    height: 27px;
+}
 .grid{
     display: flex;
     width:250px;

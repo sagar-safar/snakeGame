@@ -3,7 +3,7 @@ const squares = document.querySelectorAll('.grid div');
 
 
 
-
+let gameStatus = false;
 
 let snakeBody = [10,11,12]
 let snakeDir = 1;
@@ -12,7 +12,7 @@ let foodPos = 18;
 let score = 0;
 
 
-squares[foodPos].innerHTML = `<img src="./food.jpg" alt="">`
+squares[foodPos].innerHTML = `<img src="./straw.jpg" alt="">`
 squares[HeadPos].classList.add('snake-head')
 
 
@@ -24,7 +24,7 @@ for(let i=0;i<snakeBody.length;i++){
 
 function control(e){
     
-    if(e.keyCode===38){
+    if(e.keyCode===38 && gameStatus===false){
        
         if(snakeDir!==10){
             snakeDir = -10
@@ -36,7 +36,7 @@ function control(e){
        
     }
 
-    else if(e.keyCode===40){
+    else if(e.keyCode===40  && gameStatus===false){
         if(snakeDir!==-10){
             snakeDir = 10
             moveDown()
@@ -46,7 +46,7 @@ function control(e){
         
         
     }
-    else if(e.keyCode===39){
+    else if(e.keyCode===39  && gameStatus===false){
         if(snakeDir!==-1){
             snakeDir = 1
             moveRight()
@@ -57,7 +57,7 @@ function control(e){
 
        
     }
-    else if(e.keyCode===37){
+    else if(e.keyCode===37  && gameStatus===false){
         if(snakeDir!==1){
             snakeDir = -1
             moveLeft()
@@ -101,6 +101,8 @@ function move(){
 
     let collison = collisonDetection(); 
     if(collison){
+        gameStatus = true;
+        document.querySelector('h2').textContent = "Game Over"
         console.log("color-changed");
         squares[HeadPos].style = "background-color:red"
         return -1
@@ -170,7 +172,7 @@ function foodGen(){
     }
     else{
         
-        squares[foodPos].innerHTML=`<img src="./food.jpg" alt="">`;
+        squares[foodPos].innerHTML=`<img src="./straw.jpg" alt="">`;
     }
 }
 
